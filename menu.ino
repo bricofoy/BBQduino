@@ -94,10 +94,8 @@ void menu_mode()
     lcd.setCursor(2,1); printMode();
   }
   
-  if(haut.state(BTN_CLICK)||bas.state(BTN_CLICK)) {
-    mode++;
-    if(mode>=MD_NB_CHOIX) mode=MD_CHOISIR; 
-  }
+  if(haut.state(BTN_CLICK)) mode<2?mode++:mode=0;
+  if(bas.state(BTN_CLICK)) mode>0?mode--:mode=2;
   
   if(select.state(BTN_CLICK)) 
     switch (mode) {
