@@ -54,7 +54,7 @@ void purgeBtn() {
 
 
 // 0132456789012345
-// *BBQduino  V1.0*
+// **  BBQduino  **
 // appui pour debut
 
 void menu_init()
@@ -63,10 +63,15 @@ void menu_init()
     moteur.next(mot_arret);
     purgeBtn();
     lcd.clear();
-    lcd<<"*BBQduino V1.0*";
+    lcd<<"**  BBQduino  **";    
   }
   
-  if(menu.elapsed(2*1000UL)) {
+  if(menu.elapsed(1*1000UL)&& !menu.elapsed(3*1000UL)) {
+    lcd.setCursor(6,1);
+    lcd<<"V1.0";
+  }
+  
+  if(menu.elapsed(3*1000UL)) {
     lcd.setCursor(0,1);
     lcd<<"appui pour debut";
   }
